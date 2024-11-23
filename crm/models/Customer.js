@@ -1,5 +1,7 @@
+
 import { Schema, model, models } from "mongoose";
-const custumerSchema = new Schema({
+
+const customerSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -30,6 +32,7 @@ const custumerSchema = new Schema({
   },
   updatedAt: { type: Date, default: () => Date.now() },
 });
-const Customer =  models.Customer || model("Customer", custumerSchema);
 
-export default Customer
+const Customer = models.Customer || model("Customer", customerSchema);
+
+export default Customer;
