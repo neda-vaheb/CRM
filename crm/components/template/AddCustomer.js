@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Form from "../module/Form";
-import {useRouter} from "router/next";
+import { useRouter } from "next/router";
 
 function AddCustomer() {
 const [form , setForm] = useState({
@@ -29,10 +29,10 @@ const cancelHandler = ()=>{
 
 }
 const saveHandler = async()=>{
-    const res =await fetch("api/costumer",{
+    const res =await fetch("api/customer",{
         method:"POST",
-        body:JSON.stringify({data:form}),
-        headers:{"Contect-Type":"application/json"}
+        body:JSON.stringify({ data:form }),
+        headers:{"Content-Type":"application/json"}
 
     })
     const data = await res.json();

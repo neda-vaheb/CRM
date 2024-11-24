@@ -6,10 +6,9 @@ export default async function handler(req, res) {
     await ConnectDB();
   } catch (err) {
     console.log(err);
-    res.status(500).json({
-      status: "Failed",
-      message: "Fail to connect to DB",
-    });
+    res
+      .status(500)
+      .json({ status: "failed", message: "Error in connecting to DB" });
     return;
   }
 
@@ -23,6 +22,8 @@ export default async function handler(req, res) {
       });
 
     try {
+      
+   
       const customer = await Customer.create(data);
       res
         .status(201)
@@ -33,7 +34,6 @@ export default async function handler(req, res) {
         status: "Failed",
         message: "Error in Storing Data in DB",
       });
-      return;
     }
   }
 }
