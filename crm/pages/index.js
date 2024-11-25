@@ -1,11 +1,28 @@
+import HomePage from "../components/template/HomePage";
+import Customer from "../models/Customer";
+import ConnectDB from "../utiles/ConnectDB";
 
-
-
-
-export default function Home() {
+ function Home({customers}) {
+  console.log(customers);
   return (
-    <>
-      <h1>boto crm</h1>
-    </>
+<HomePage customers={customers}/>
   )
+}
+export default Home;
+
+export async function getServerSideProps(){
+  try{
+await ConnectDB();
+const customers = await Customer.find();
+return{
+  props:{
+    customers : JSON.parse(JSON.stringify(customers))
+  }
+}
+  }catch(err){
+console.log(err)
+return{
+  notFound:true
+}
+  }
 }
