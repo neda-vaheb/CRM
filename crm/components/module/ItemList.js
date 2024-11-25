@@ -25,7 +25,13 @@ function ItemList({ form, setForm }) {
     <div className="item-list">
       <p>Purchased Products</p>
       {products.map((product, index) => (
-        <ProductItem key={index} product={product} index={index} changeHandler={(e) => changeHandler(e, index)} deleteHandler={() => deleteHandler(index)}/>
+        <ProductItem
+          key={index}
+          product={product}
+          index={index}
+          changeHandler={(e) => changeHandler(e, index)}
+          deleteHandler={() => deleteHandler(index)}
+        />
       ))}
       <button onClick={addHandler}>ADD Item</button>
     </div>
@@ -33,32 +39,33 @@ function ItemList({ form, setForm }) {
 }
 
 export default ItemList;
- function ProductItem ({product , index , deleteHandler , changeHandler}){
-    return(
+function ProductItem({ product, index, deleteHandler, changeHandler }) {
+  return (
     <div key={index} className="form-input__list">
+      <FormInput
+        name="name"
+        label="Product name"
+        type="text"
+        value={product.name}
+        onChange={changeHandler}
+      />
+      <div>
         <FormInput
-          name="name"
-          label="Product name"
-          type="text"
-          value={product.name}
+          name="price"
+          label="Price"
+          type="number"
+          value={product.price}
           onChange={changeHandler}
         />
-        <div>
-          <FormInput
-            name="price"
-            label="Price"
-            type="number"
-            value={product.price}
-            onChange={changeHandler}
-          />
-          <FormInput
-            name="qty"
-            label="QTY"
-            type="number"
-            value={product.qty}
-            onChange={changeHandler}
-          />
-        </div>
-        <button onClick={deleteHandler}>Remove</button>
-      </div>)
- }
+        <FormInput
+          name="qty"
+          label="QTY"
+          type="number"
+          value={product.qty}
+          onChange={changeHandler}
+        />
+      </div>
+      <button onClick={deleteHandler}>Remove</button>
+    </div>
+  );
+}
