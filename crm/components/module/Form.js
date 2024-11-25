@@ -1,9 +1,10 @@
 import React from 'react'
+import ItemList from './ItemList'
 
-function Form() {
+function Form({form ,setForm}) {
   return (
     <div>
-      form
+      <ItemList form={form} setForm={setForm}/>
     </div>
   )
 }
