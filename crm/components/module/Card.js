@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 
 function Card({customer}) {
   const router = useRouter();
-
   const deleteHandler = async () => {
     const res = await fetch(`/api/delete/${customer._id}`, {
       method: "DELETE",
