@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "14.2.15",
+    "moment": "^2.30.1",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.2",
     "next": "15.0.3",
