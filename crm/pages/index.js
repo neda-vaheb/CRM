@@ -3,7 +3,6 @@ import Customer from "../models/Customer";
 import ConnectDB from "../utiles/ConnectDB";
 
  function Home({customers}) {
-  console.log(customers);
   return (
 <HomePage customers={customers}/>
   )
