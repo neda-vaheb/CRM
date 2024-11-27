@@ -1,9 +1,7 @@
-import AddCustomer from "../../components/template/AddCustomer"
+import AddCustomer from "../../components/template/AddCustomer";
 
 function addCustomerPage() {
-  return (
-    <AddCustomer/>
-  )
+  return <AddCustomer />;
 }
 
-export default addCustomerPage
+export default addCustomerPage;

@@ -22,8 +22,6 @@ export default async function handler(req, res) {
       });
 
     try {
-      
-   
       const customer = await Customer.create(data);
       res
         .status(201)

@@ -1,4 +1,3 @@
-
 import { Schema, model, models } from "mongoose";
 
 const customerSchema = new Schema({
